@@ -27,7 +27,7 @@
 /public/locales/*/common_old.json
 
 # Used for fetching files from tolgee
-/tmp
+#/tmp
 
 # misc
 .DS_Store

@@ -10,7 +10,7 @@
 /out/
 
 # Used for fetching files from tolgee
-/tmp
+#/tmp
 
 # misc
 .DS_Store

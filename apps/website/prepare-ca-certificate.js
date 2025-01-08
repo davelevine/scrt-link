@@ -11,7 +11,7 @@ fs.mkdir(path.join(__dirname, '/tmp'), { recursive: true }, (err) => {
 })
 fs.writeFile(
   path.join(__dirname, 'tmp/ca-certificate.pem'),
-  process.env.SCALEGRID_CA_CERTIFICATE,
+  process.env.CA_CERTIFICATE,
   function (err) {
     if (err) throw err
     console.log('Certificate file was created successfully.')

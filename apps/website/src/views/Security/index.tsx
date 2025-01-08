@@ -41,13 +41,10 @@ If a password is provided, we use it to encrypt your secret **on top** of the st
             defaultValue: `We chose industry leaders to host our infrastructure:
 
 - Website/API on {{linkVercel}}
-- Cloud Database with {{linkScaleGrid}}
 - Object Storage (Files) with {{linkFlowSwiss}}
 - All code on {{linkGitlab}}`,
             linkVercel: '[Vercel](https://vercel.com)',
-            linkScaleGrid: '[Scalegrid](https://scalegrid.io/)',
             linkFlowSwiss: '[Flow Swiss AG](https://flow.swiss/)',
-            linkHeroku: '[Heroku](https://heroku.com/)',
             linkGitlab: `[Github](${repositoryUrl})`,
           })}
         />

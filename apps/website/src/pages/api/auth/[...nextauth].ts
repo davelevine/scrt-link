@@ -4,16 +4,12 @@ import { EmailConfig } from 'next-auth/providers/email'
 
 import handleErrors from '@/api/middlewares/handleErrors'
 import withDb from '@/api/middlewares/withDb'
-import mailjet from '@/api/utils/mailjet'
 import stripe from '@/api/utils/stripe'
-import { getLocaleFromRequest } from '@/api/utils/helpers'
-import { mailjetTemplates, placeholderName } from '@/constants'
+import { placeholderName } from '@/constants'
 import { nextAuthAdapter } from '@/api/utils/nextAuth'
 import createError from '@/api/utils/createError'
 
 const handler: NextApiHandler = async (req, res) => {
-  const template = mailjetTemplates.signInRequest[getLocaleFromRequest(req)]
-
   const models = req.models
   if (!models) {
     throw createError(500, 'Could not find db connection')
@@ -51,18 +47,8 @@ const handler: NextApiHandler = async (req, res) => {
         )
       }
 
-      await mailjet({
-        To: [{ Email: email, Name: givenName }],
-        Subject: template.subject,
-        TemplateID: template.templateId,
-        TemplateLanguage: true,
-        Variables: {
-          url: url,
-        },
-      }).catch((error) => {
-        console.error('Email sign-in request failed: ', error)
-        throw new Error('SEND_VERIFICATION_EMAIL_ERROR')
-      })
+      // Here you would implement your alternative email sending logic
+      console.log(`Send verification email to ${email} with URL: ${url}`)
     },
     options: {},
   }

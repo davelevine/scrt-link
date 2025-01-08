@@ -10,8 +10,6 @@ declare global {
       NEXT_PUBLIC_ENV: string
       DB: string
       AES_KEY_512: string
-      MJ_APIKEY_PUBLIC: string
-      MJ_APIKEY_PRIVATE: string
       JWT_SECRET: string
       NEXT_AUTH_SECRET: string
       NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string
@@ -23,9 +21,6 @@ declare global {
       NEXT_PUBLIC_FLOW_S3_BUCKET: string
       FLOW_S3_ACCESS_KEY: string
       FLOW_S3_SECRET_KEY: string
-      TOLGEE_API_KEY: string
-      NEXT_PUBLIC_POSTHOG_KEY: string
-      NEXT_PUBLIC_POSTHOG_HOST: string
     }
   }
 }

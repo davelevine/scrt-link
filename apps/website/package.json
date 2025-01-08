@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "pnpm prepare-ca-certificate & NODE_OPTIONS='--max_old_space_size=4096 --inspect' next dev",
-    "prebuild": "pnpm fetch-translations & pnpm prepare-ca-certificate",
     "build": "next build",
     "postbuild": "next-sitemap",
     "export": "next export",
@@ -12,8 +11,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "next lint",
     "prepare-ca-certificate": "node prepare-ca-certificate.js",
-    "fetch-translations": "node tolgee.js",
-    "parse-translations": "i18next 'src/**/*.{ts,tsx}' 'pages/**/*.{ts,tsx}'",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },

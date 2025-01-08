@@ -4,15 +4,13 @@ import NextCors from 'nextjs-cors'
 import withDb from '@/api/middlewares/withDb'
 import handleErrors from '@/api/middlewares/handleErrors'
 import createError from '@/api/utils/createError'
-import mailjet from '@/api/utils/mailjet'
 import { decryptAES } from '@/utils/db'
 
 import { getLocaleFromRequest } from '@/api/utils/helpers'
-import { mailjetTemplates, ntfyTemplates } from '@/constants'
+import { ntfyTemplates } from '@/constants'
 
 const handler: NextApiHandler = async (req, res) => {
   const locale = getLocaleFromRequest(req)
-  const mailTemplate = mailjetTemplates.readReceipt[locale]
   const ntfyTemplate = ntfyTemplates.readReceipt[locale]
 
   // Run the middleware
@@ -53,7 +51,6 @@ const handler: NextApiHandler = async (req, res) => {
         neogramDestructionMessage,
         neogramDestructionTimeout,
         receiptApi,
-        receiptEmail,
         message,
       } = secretUrl
 
@@ -70,18 +67,6 @@ const handler: NextApiHandler = async (req, res) => {
         },
         { new: true },
       )
-
-      if (receiptEmail) {
-        await mailjet({
-          To: [{ Email: decryptAES(receiptEmail), Name: 'scrt.link' }],
-          Subject: mailTemplate.subject,
-          TemplateID: mailTemplate.templateId,
-          TemplateLanguage: true,
-          Variables: {
-            alias,
-          },
-        }).catch(console.error)
-      }
 
       if (receiptApi?.ntfy) {
         await fetch(`https://ntfy.sh/${receiptApi.ntfy}`, {

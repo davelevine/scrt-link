@@ -1,15 +1,15 @@
 /// <reference types="cypress" />
 
 const emojiUrl = 'https://🤫.st/'
-const productionDomain = 'scrt.link'
+const productionDomain = 'scrt-links.vercel.app'
 
 context('Redirects', function () {
-  it('should redirect to scrt.link', function () {
+  it('should redirect to scrt-links.vercel.app', function () {
     cy.visit('/file')
     cy.location('pathname').should('contain', 'files')
   })
 
-  it('redirects to scrt.link from 🤫.st', function () {
+  it('redirects to scrt-links.vercel.app from 🤫.st', function () {
     cy.request({
       url: emojiUrl,
       followRedirect: false, // turn off following redirects

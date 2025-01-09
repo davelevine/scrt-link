@@ -103,7 +103,7 @@ const MyApp = ({
   return (
     <CacheProvider value={emotionCache}>
       <SessionProvider session={session}>
-        <PlausibleProvider domain="scrt.link" exclude="/l/*, /*/l/*">
+        <PlausibleProvider domain="scrt-links.vercel.app" exclude="/l/*, /*/l/*">
           <SWRConfig value={{ fetcher: (url) => fetch(url).then((res) => res.json()) }}>
             <DefaultSeo {...getDefaultSeoConfig(t, router.pathname, i18n.language)} />
             <Head>
@@ -116,7 +116,7 @@ const MyApp = ({
                 name="keywords"
                 content={t(
                   'common:meta.keywords',
-                  'scrt.link, secret link, secret message link, one time secret, one time password, one time message, one time link, disposable message, disposable link, url shortener, self-destructive links, share sensitive information',
+                  'scrt-links.vercel.app, secret link, secret message link, one time secret, one time password, one time message, one time link, disposable message, disposable link, url shortener, self-destructive links, share sensitive information',
                 )}
                 key="keywords"
               />

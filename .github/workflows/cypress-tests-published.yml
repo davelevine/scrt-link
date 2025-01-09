@@ -32,7 +32,7 @@ jobs:
         run: pnpm cypress run --config baseUrl=${{ github.event.deployment_status.target_url }}
       - name: Run tests on production PR
         if: github.event.deployment_status.environment == 'Production'
-        run: pnpm cypress run --config baseUrl=https://scrt.link
+        run: pnpm cypress run --config baseUrl=https://scrt-links.vercel.app
       - name: Create folder for artifacts
         if: always()
         run: mkdir -p apps/website/cypress-artifacts

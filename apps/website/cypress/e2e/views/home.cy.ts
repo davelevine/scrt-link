@@ -22,7 +22,7 @@ context('Basics', function () {
   it('should have one title tag', function () {
     cy.get('head title')
       .should('have.length', 1)
-      .should('have.text', 'Share a secret | 🤫 scrt.link')
+      .should('have.text', 'Share a secret | 🤫 scrt-links.vercel.app')
   })
 
   it('should have meta description', function () {
@@ -54,6 +54,6 @@ context('German', function () {
   it('should have one title tag in German', function () {
     cy.get('head title')
       .should('have.length', 1)
-      .should('have.text', 'Teile ein Geheimnis | 🤫 scrt.link')
+      .should('have.text', 'Teile ein Geheimnis | 🤫 scrt-links.vercel.app')
   })
 })

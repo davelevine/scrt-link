@@ -41,7 +41,7 @@
     "mongodb": "^5.1.0",
     "mongoose": "^6.1.7",
     "mongoose-unique-validator": "^2.0.3",
-    "next": "^14.0.4",
+    "next": "14.2.35",
     "next-auth": "^4.20.1",
     "next-compose-plugins": "^2.2.1",
     "next-i18next": "^10.5.0",
